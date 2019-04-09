@@ -7,7 +7,7 @@
 	version="2.2">
 	
 	<persistence-unit name="AnsattPersistenceUnit" transaction-type="RESOURCE_LOCAL">
-		<class>klienter.Ansatt</class>
+		<class>eao.Ansatt</class>
 		
 		<properties>
 			<!--GenerelleJPA properties -->
