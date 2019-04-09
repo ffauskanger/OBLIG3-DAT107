@@ -1,5 +1,7 @@
 package entities;
 
+import java.sql.Date;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,25 +9,28 @@ import javax.persistence.*;
 @NamedQuery(name = "hentAlleAnsatte", query ="SELECT a FROM Ansatt a")
 
 public class Ansatt {
-	@Id private Integer id; 
+		@Id     
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
+		private Integer id; 
 		private String brukernavn;
-/*		private String fornavn;
+		private String fornavn;
 		private String etternavn;
-		private Integer ansettelse;
+		private Date ansettelse;
 		private String stilling;
-		private int mlønn;
+		private Integer inntekt;
 		private String avdeling;
-	*/
+	
 	public Ansatt() {
 	}
 	
-/*	public Ansatt(int id, String brukernavn, String fornavn, String etternavn, int ansettelse,
-						String stilling, int ml�nn, String avdeling) {
-	}
-*/
-	public Ansatt(int id, String brukernavn) {
-		this.id = id;
+	public Ansatt(String brukernavn, String fornavn, String etternavn, Date ansettelse, String stilling, int inntekt, String avdeling) {
 		this.brukernavn = brukernavn;
+		this.fornavn = fornavn;
+		this.etternavn = etternavn;
+		this.ansettelse = ansettelse;
+		this.stilling = stilling;
+		this.inntekt = inntekt;
+		this.avdeling = avdeling;
 	}
 	
 	public void setId(int id) {
@@ -47,7 +52,8 @@ public class Ansatt {
 	@Override
 	public String toString()
 	{
-		return String.format("Ansatt: id=%d, brukernavn=%s", id, brukernavn);
+        
+		return String.format("Ansatt: id=%d, brukernavn=%s, fornavn=%s, etternavn=%s, ansettelse=%s, stilling=%s, inntekt=%d, avdeling=%s", id, brukernavn, fornavn, etternavn, ansettelse.toString(), stilling, inntekt, avdeling);
 	}
 
 }

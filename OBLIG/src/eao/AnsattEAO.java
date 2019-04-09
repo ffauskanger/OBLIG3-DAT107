@@ -12,8 +12,14 @@ import entities.Ansatt;
 
 public class AnsattEAO {
 	
-	public static Ansatt finnAnsattMedId(int id) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("AnsattPersistenceUnit");
+    private EntityManagerFactory emf;
+	
+    public AnsattEAO() 
+    {
+        emf = Persistence.createEntityManagerFactory("AnsattPersistenceUnit");
+    }
+	
+	public Ansatt finnAnsattMedId(int id) {
         EntityManager em = emf.createEntityManager();
         Ansatt a = null;
 
@@ -25,22 +31,23 @@ public class AnsattEAO {
         return a;
     }
 	
-	/*
-	public static Ansatt finnAnsattMedBrukerNavn(String brukernavn) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("AnsattPersistenceUnit");
+	
+	public Ansatt finnAnsattMedBrukerNavn(String brukernavn) {
         EntityManager em = emf.createEntityManager();
         Ansatt a = null;
 
         try {
-            a = em.find(Ansatt.class, brukernavn);
+        	String queryString ="SELECT a FROM Ansatt a WHERE a.brukernavn =:brukernavn";
+        	TypedQuery<Ansatt> query = em.createQuery(queryString, Ansatt.class);
+        	query.setParameter("brukernavn", brukernavn);
+            a = query.getSingleResult();
         } finally {
             em.close();
         }
         return a;
-    }*/
+    }
 	
-	public static List<Ansatt> hentAlleAnsatte() {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("AnsattPersistenceUnit");
+	public List<Ansatt> hentAlleAnsatte() {
         EntityManager em = emf.createEntityManager();
         List<Ansatt> ansatte = null;
 
@@ -55,7 +62,6 @@ public class AnsattEAO {
 	
 	public void opprettAnsatt(Ansatt a) {
 		
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("AnsattPersistenceUnit");
         EntityManager em = emf.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 
@@ -74,7 +80,6 @@ public class AnsattEAO {
 	/*
 	public void oppdaterAnsatt(Ansatt a) {
 
-		 EntityManagerFactory emf = Persistence.createEntityManagerFactory("AnsattPersistenceUnit");
 	     EntityManager em = emf.createEntityManager();
 
 		try {
@@ -82,8 +87,6 @@ public class AnsattEAO {
 			Ansatt q = em.merge(a);
 			
 			boolean x = a.getBrukernavn().equals("X");
-			if (x) p.setNavn("Tull");	//Virker ikke siden p er detached
-			if (x) q.setNavn("Tull");	//Virker siden q er managed
 			em.getTransaction().commit();
 		
 		} catch (Throwable e) {

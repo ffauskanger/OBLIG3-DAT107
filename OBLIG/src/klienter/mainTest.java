@@ -1,6 +1,7 @@
 package klienter;
 
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -15,51 +16,45 @@ public class mainTest {
 
 	public static void main(String[] args) {
 		
-		AnsattEAO aEAO = new AnsattEAO();
+		AnsattEAO eao = new AnsattEAO();
 		
-		//Ansatt b = aEAO.finnAnsattMedBrukerNavn("test");
 		
-		//System.out.println(b.getBrukernavn());
-
+		//printAnsatte(eao);
+		//leggTilAnsatt(eao);
+		//finnAnsattMedBrukerNavn(eao, "kris");
+		finnAnsattMedID(eao, 2);
 		
-		// Printer ut alle
-		List<Ansatt> ansatte = aEAO.hentAlleAnsatte();
+	}
+	
+	public static void finnAnsattMedBrukerNavn(AnsattEAO eao, String navn)
+	{
+		Ansatt a = eao.finnAnsattMedBrukerNavn(navn);
+		System.out.println(a.toString());
+	}
+	
+	public static void finnAnsattMedID(AnsattEAO eao, Integer id)
+	{
+		Ansatt a = eao.finnAnsattMedId(id);
+		System.out.println(a.toString());
+	}
+	
+	public static void leggTilAnsatt(AnsattEAO eao)
+	{
+		java.util.Date dato = new java.util.Date();
+        java.sql.Date idag = new java.sql.Date(dato.getTime());
+		Ansatt a = new Ansatt("kris", "per", "chris", idag, "stilling" , 50, "avdeling");
+		eao.opprettAnsatt(a);
+        
+	}
+	
+	public static void printAnsatte(AnsattEAO eao)
+	{
+		List<Ansatt> ansatte = eao.hentAlleAnsatte();
 		
 		for(Ansatt a : ansatte)
 		{
 			System.out.println(a.toString());
 		}
-		
-		//Ansatt a = new Ansatt(0, "test");
-		//aEAO.opprettAnsatt(a);
-		
-		//System.out.println(aEAO.finnAnsattMedBrukerNavn("spsh"));
-		
-		
-		
-		/*
-		String jpql = "SELECT a FROM Ansatt a";
-		
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("AnsattPersistenceUnit");
-		
-		EntityManager em = emf.createEntityManager();
-		
-		System.out.println("Kobler til database...");
-		
-		try {
-			TypedQuery<Ansatt> query = em.createQuery(jpql, Ansatt.class);
-			List<Ansatt> ansatte = query.getResultList();
-			
-			for (Ansatt a : ansatte) {
-				System.out.println("Id: " + a.getId());
-				System.out.println("Brukernavn: " + a.getBrukernavn());
-			}
-		} finally {
-			em.close();
-		}
-		
-		System.out.println("Ferdig!");
-		*/
 	}
 
 }
