@@ -18,12 +18,14 @@ public class Ansatt {
 		private Date ansettelse;
 		private String stilling;
 		private Integer inntekt;
-		private String avdeling;
-	
+		@ManyToOne
+		@JoinColumn(name = "avdid")
+		private Avdeling avdeling;
+		
 	public Ansatt() {
 	}
 	
-	public Ansatt(String brukernavn, String fornavn, String etternavn, Date ansettelse, String stilling, int inntekt, String avdeling) {
+	public Ansatt(String brukernavn, String fornavn, String etternavn, Date ansettelse, String stilling, int inntekt, Avdeling avdeling) {
 		this.brukernavn = brukernavn;
 		this.fornavn = fornavn;
 		this.etternavn = etternavn;

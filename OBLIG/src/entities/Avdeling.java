@@ -1,6 +1,10 @@
 package entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -10,26 +14,29 @@ import javax.persistence.Table;
 @NamedQuery(name = "hentAlleAvdelinger", query ="SELECT av FROM Avdeling av")
 
 public class Avdeling {
-	@Id private int id;
-		private String navn;
-		private int ansattSinSjef; //foreign key
 	
-		
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+		private int avdid;
+		private String navn;
+		private Ansatt ansattSinSjef; //foreign key
+	
+		private List<Ansatt> ansatte;
 		public Avdeling() {
 		}
 		
-		public Avdeling(int id, String navn, int ansattSinSjef) {
-			this.id = id;
+		public Avdeling(int avdid, String navn, Ansatt ansattSinSjef) {
+			this.avdid = avdid;
 			this.navn = navn;
-			this.ansattSinSjef = ansattSinSjef;
+			this.Ansatt = ansattSinSjef;
 		}
 		
 		public int getId() {
-			return id;
+			return avdid;
 		}
 		
 		public void setId(int id) {
-			this.id = id;
+			this.avdid = avdid;
 		}
 		
 		public String getNavn() {
