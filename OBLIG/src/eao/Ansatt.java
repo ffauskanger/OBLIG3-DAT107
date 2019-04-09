@@ -1,4 +1,4 @@
-package klienter;
+package eao;
 
 import javax.persistence.*;
 
