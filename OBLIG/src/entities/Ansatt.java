@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "ansatt", schema = "oblig3_jpa")
-@NamedQuery(name = "hentAllePersoner", query ="SELECT a FROM Ansatt a")
+@NamedQuery(name = "hentAlleAnsatte", query ="SELECT a FROM Ansatt a")
 
 public class Ansatt {
 	@Id private Integer id; 
@@ -32,7 +32,7 @@ public class Ansatt {
 		this.id = id;
 	}
 	
-	public void setBrukernavnd(String brukernavn) {
+	public void setBrukernavn(String brukernavn) {
 		this.brukernavn = brukernavn;
 	}
 	
@@ -44,6 +44,10 @@ public class Ansatt {
 		return id;
 	}
 
-	
+	@Override
+	public String toString()
+	{
+		return String.format("Ansatt: id=%d, brukernavn=%s", id, brukernavn);
+	}
 
 }
