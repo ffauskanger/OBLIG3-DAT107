@@ -1,4 +1,4 @@
-package eao;
+package entities;
 
 import javax.persistence.*;
 

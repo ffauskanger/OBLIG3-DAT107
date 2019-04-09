@@ -8,7 +8,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
-import eao.Ansatt;
+import entities.Ansatt;
 
 public class mainTest {
 

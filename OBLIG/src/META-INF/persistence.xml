@@ -7,9 +7,9 @@
 	version="2.2">
 	
 	<persistence-unit name="AnsattPersistenceUnit" transaction-type="RESOURCE_LOCAL">
-		<class>eao.Ansatt</class>
-		<class>eao.Prosjekt</class>
-		<class>eao.Avdeling</class>
+		<class>entities.Ansatt</class>
+		<class>entities.Prosjekt</class>
+		<class>entities.Avdeling</class>
 		
 		<properties>
 			<!--GenerelleJPA properties -->
