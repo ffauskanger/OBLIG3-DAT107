@@ -40,7 +40,7 @@ public class mainTest {
 		   etternavn VARCHAR(30),
 		   ansettelse	DATE,
 		   stilling	VARCHAR(30),
-		   mlønn	INTEGER,
+		   inntekt	INTEGER,
 		   avdeling	VARCHAR(30),
 		   PRIMARY KEY (id)  
 		);
