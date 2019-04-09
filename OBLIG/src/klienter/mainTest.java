@@ -24,6 +24,30 @@ public class mainTest {
 		//finnAnsattMedBrukerNavn(eao, "kris");
 		finnAnsattMedID(eao, 2);
 		
+		/*
+	
+		DROP SCHEMA IF EXISTS oblig3_jpa CASCADE;
+
+		CREATE SCHEMA oblig3_jpa;
+		SET search_path to oblig3_jpa;
+		
+		
+		CREATE TABLE Ansatt
+		(
+		   id        SERIAL,
+		   brukernavn    VARCHAR(4),
+		   fornavn	VARCHAR(30),
+		   etternavn VARCHAR(30),
+		   ansettelse	DATE,
+		   stilling	VARCHAR(30),
+		   mlønn	INTEGER,
+		   avdeling	VARCHAR(30),
+		   PRIMARY KEY (id)  
+		);
+		
+		*/
+
+		
 	}
 	
 	public static void finnAnsattMedBrukerNavn(AnsattEAO eao, String navn)
