@@ -17,7 +17,7 @@
 			<property name="javax.persistence.jdbc.url"
 			value="jdbc:postgresql://data1.hib.no:5433/h148817" />
 			<property name="javax.persistence.jdbc.user" value="h148817"/>
-			<property name="javax.persistence.jdbc.password" value="password"/>
+			<property name="javax.persistence.jdbc.password" value="passworda"/>
 			
 			<!--EclipseLink properties -->
 			<!--Sehttps://wiki.eclipse.org/EclipseLink/Examples/JPA/Logging -->
