@@ -77,16 +77,14 @@ public class AnsattEAO {
 			em.close();
 		}
 	}
-	/*
+	
 	public void oppdaterAnsatt(Ansatt a) {
 
 	     EntityManager em = emf.createEntityManager();
 
 		try {
 			em.getTransaction().begin();
-			Ansatt q = em.merge(a);
-			
-			boolean x = a.getBrukernavn().equals("X");
+			em.merge(a);
 			em.getTransaction().commit();
 		
 		} catch (Throwable e) {
@@ -95,5 +93,5 @@ public class AnsattEAO {
 		} finally {
 			em.close();
 		}
-	}*/
+	}
 }

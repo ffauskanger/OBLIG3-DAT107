@@ -10,7 +10,9 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 import eao.AnsattEAO;
+import eao.AvdelingEAO;
 import entities.Ansatt;
+import entities.Avdeling;
 
 public class mainTest {
 
@@ -18,11 +20,12 @@ public class mainTest {
 		
 		AnsattEAO eao = new AnsattEAO();
 		
-		
-		//printAnsatte(eao);
-		//leggTilAnsatt(eao);
+		leggTilAnsatt(eao);
+		printAnsatte(eao);
 		//finnAnsattMedBrukerNavn(eao, "kris");
-		finnAnsattMedID(eao, 2);
+		//finnAnsattMedID(eao, 1);
+		//oppdaterAnsatt(eao, 1);
+		//finnAnsattMedID(eao, 1);
 		
 		/*
 	
@@ -66,7 +69,11 @@ public class mainTest {
 	{
 		java.util.Date dato = new java.util.Date();
         java.sql.Date idag = new java.sql.Date(dato.getTime());
-		Ansatt a = new Ansatt("kris", "per", "chris", idag, "stilling" , 50, "avdeling");
+        
+        AvdelingEAO evEAO = new AvdelingEAO();
+        Avdeling avdeling = evEAO.finnAvdelingMedId(1);
+        
+		Ansatt a = new Ansatt("oles", "Ole", "Sila", idag, "stilling" , 50, avdeling);
 		eao.opprettAnsatt(a);
         
 	}
@@ -80,5 +87,11 @@ public class mainTest {
 			System.out.println(a.toString());
 		}
 	}
-
+	
+	public static void oppdaterAnsatt(AnsattEAO eao, Integer id) 
+	{
+		Ansatt a = eao.finnAnsattMedId(id);
+		a.setBrukernavn("ole");
+		eao.oppdaterAnsatt(a);
+	}
 }

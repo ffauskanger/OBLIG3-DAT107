@@ -19,7 +19,7 @@ public class Ansatt {
 		private String stilling;
 		private Integer inntekt;
 		@ManyToOne
-		@JoinColumn(name = "avdid")
+		@JoinColumn(name = "id", insertable=false, updatable=false)
 		private Avdeling avdeling;
 		
 	public Ansatt() {
@@ -55,7 +55,7 @@ public class Ansatt {
 	public String toString()
 	{
         
-		return String.format("Ansatt: id=%d, brukernavn=%s, fornavn=%s, etternavn=%s, ansettelse=%s, stilling=%s, inntekt=%d, avdeling=%s", id, brukernavn, fornavn, etternavn, ansettelse.toString(), stilling, inntekt, avdeling);
+		return String.format("Ansatt: id=%d, brukernavn=%s, fornavn=%s, etternavn=%s, ansettelse=%s, stilling=%s, inntekt=%d, avdeling=%s", id, brukernavn, fornavn, etternavn, ansettelse.toString(), stilling, inntekt, avdeling.getNavn());
 	}
 
 }

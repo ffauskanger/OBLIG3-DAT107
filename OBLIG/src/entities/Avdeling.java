@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,28 +16,29 @@ import javax.persistence.Table;
 
 public class Avdeling {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-		private int avdid;
+		@Id
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
+		private int id;
 		private String navn;
-		private Ansatt ansattSinSjef; //foreign key
-	
+		private Ansatt sjef; //foreign key
+		
+		@OneToMany(targetEntity=Ansatt.class)
 		private List<Ansatt> ansatte;
+		
 		public Avdeling() {
 		}
 		
-		public Avdeling(int avdid, String navn, Ansatt ansattSinSjef) {
-			this.avdid = avdid;
+		public Avdeling(String navn, Ansatt sjef) {
 			this.navn = navn;
-			this.Ansatt = ansattSinSjef;
+			this.sjef = sjef;
 		}
 		
 		public int getId() {
-			return avdid;
+			return id;
 		}
 		
 		public void setId(int id) {
-			this.avdid = avdid;
+			this.id = id;
 		}
 		
 		public String getNavn() {
@@ -47,12 +49,12 @@ public class Avdeling {
 			this.navn= navn;
 		}
 		
-		public int getAnsattSinSjef() {
-			return ansattSinSjef;
+		public Ansatt getSjef() {
+			return sjef;
 		}
 		
-		public void setAnsattSinSjef(int ansattSinSjef) {
-			this.ansattSinSjef = ansattSinSjef;
+		public void setSjef(Ansatt sjef) {
+			this.sjef = sjef;
 		}
 		
 }
