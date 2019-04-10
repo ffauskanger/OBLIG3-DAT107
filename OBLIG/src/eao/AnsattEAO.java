@@ -25,7 +25,7 @@ public class AnsattEAO {
         //kommenterte ut Stian, funker
        //Ansatt a = null;
 
-        try {
+        try| {
          return   em.find(Ansatt.class, id);
         } finally {
             em.close();

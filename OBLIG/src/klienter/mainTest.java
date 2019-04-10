@@ -11,8 +11,12 @@ import javax.persistence.TypedQuery;
 
 import eao.AnsattEAO;
 import eao.AvdelingEAO;
+import eao.ProsjektDeltakelseEAO;
+import eao.ProsjektEAO;
 import entities.Ansatt;
 import entities.Avdeling;
+import entities.Prosjekt;
+import entities.ProsjektDeltakelse;
 
 public class mainTest {
 
@@ -22,9 +26,20 @@ public class mainTest {
 		//Avdeling avd = avdeao.finnAvdelingMedId(1);
 		//System.out.println(avd);
 		
+		//Meny meny = new Meny();
 		
-
+		ProsjektDeltakelseEAO pdelEAO = new ProsjektDeltakelseEAO();
+		ProsjektEAO peao = new ProsjektEAO();
 		AnsattEAO eao = new AnsattEAO();
+		leggTilDeltakelse(pdelEAO);
+		/*
+		List<Prosjekt> prosjekter = peao.hentAlleProsjekter();
+		for(Prosjekt p : prosjekter)
+		{
+			p.toString();
+		}*/
+		
+		
 		//Ansatt ans = eao.finnAnsattMedId(1001);
 		//Ansatt ans2 = eao.finnAnsattMedId(1002);
 		//System.out.println(ans);
@@ -38,6 +53,17 @@ public class mainTest {
 		//oppdaterAnsatt(eao, 1);
 		//finnAnsattMedID(eao, 1);
 		
+	}
+	
+	public static void leggTilDeltakelse(ProsjektDeltakelseEAO eao)
+	{
+		
+		ProsjektEAO peao = new ProsjektEAO();
+		AnsattEAO aeao = new AnsattEAO();
+		Ansatt a = aeao.finnAnsattMedId(1001);
+		Prosjekt p = peao.finnProsjektMedId(51);
+		ProsjektDeltakelse pDel = new ProsjektDeltakelse(a, p, 50);
+		eao.opprettDeltakelse(pDel);
 	}
 	
 	public static void finnAnsattMedBrukerNavn(AnsattEAO eao, String navn)

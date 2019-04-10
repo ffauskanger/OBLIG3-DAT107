@@ -57,5 +57,12 @@ public class Prosjekt {
 		public int getId() {
 			return id;
 		}
+		@Override
+		public String toString() {
+			return String.format("Prosjekt: [id: %d, navn: %s, beskrivelse: %s]:", id, navn, beskrivelse);
+			
+			
+			
+		}
 
 }
