@@ -23,8 +23,8 @@ public class Avdeling {
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private int id;
 		private String navn;
-		@OneToOne
-		@JoinColumn(name = "id")
+		//@OneToOne
+		@JoinColumn(name = "id", insertable=false, updatable=false)
 		private Ansatt sjef;
 		
 		//@OneToMany(targetEntity=Ansatt.class)

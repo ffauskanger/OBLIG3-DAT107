@@ -49,4 +49,23 @@ public class ProsjektEAO {
         }
         return prosjekter;
     }
+    
+    
+    public void opprettProsjekt(Prosjekt p) {
+		
+        EntityManager em = emf.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+
+		try {
+			tx.begin();
+			em.persist(p);
+			tx.commit();
+		
+		} catch (Throwable e) {
+			e.printStackTrace();
+			tx.rollback();
+		} finally {
+			em.close();
+		}
+	}
 }

@@ -1,5 +1,6 @@
 package klienter;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -8,6 +9,7 @@ import eao.AvdelingEAO;
 import eao.ProsjektEAO;
 import entities.Ansatt;
 import entities.Avdeling;
+import entities.Prosjekt;
 
 public class Meny {
 	
@@ -64,6 +66,7 @@ public class Meny {
 			case 2: finnAnsattMedID(); break;
 			case 3: printAnsatte(); break;
 			case 4: oppdaterAnsatt(); break;
+			case 5: leggTilAnsatt(); break;
 			default: System.out.println("Feil input!"); break;
 			}
 		}
@@ -99,11 +102,10 @@ public class Meny {
 			switch(input)
 			{
 			case 0: aktiv = false; break;
-			case 1: finnAnsattMedBrukerNavn(); break;
-			case 2: finnAnsattMedID(); break;
-			case 3: printAnsatte(); break;
-			case 4: oppdaterAnsatt(); break;
-			case 5: leggTilAnsatt(); break;
+			case 1: System.out.println("Prosjektdeltakelse"); break;
+			case 2: printProsjekt(); break;
+			case 3: System.out.println("Føre timer for ansatt"); break;
+			case 4: leggTilProsjekt(); break;
 			default: System.out.println("Feil input!"); break;
 			}
 		}
@@ -177,10 +179,22 @@ public class Meny {
 		java.util.Date dato = new java.util.Date();
         java.sql.Date idag = new java.sql.Date(dato.getTime());
         
-        AvdelingEAO evEAO = new AvdelingEAO();
-        Avdeling avdeling = evEAO.finnAvdelingMedId(1);
+        System.out.print("Brukernavn til ansatt: ");
+		String brukernavn = hentInput();
+        System.out.print("Fornavn til ansatt: ");
+		String fornavn = hentInput();
+		System.out.print("Fornavn til ansatt: ");
+		String etternavn = hentInput();
+		System.out.print("Stilling til ansatt: ");
+		String stilling = hentInput();
+		System.out.print("Inntekt til ansatt: ");
+		Integer inntekt = Integer.parseInt(hentInput());
+		System.out.print("Avdeling til ansatt (ID): ");
+		Integer avdelingID = Integer.parseInt(hentInput());
         
-		Ansatt a = new Ansatt("oles", "Ole", "Sila", idag, "stilling" , 50, avdeling);
+        Avdeling avdeling = avEAO.finnAvdelingMedId(avdelingID);
+
+		Ansatt a = new Ansatt(brukernavn,fornavn,etternavn,idag,stilling,inntekt,avdeling);
 		anEAO.opprettAnsatt(a);
         
 	}
@@ -247,7 +261,7 @@ public class Meny {
 		Ansatt sjef = anEAO.finnAnsattMedId(sjefID);
 		
 		Avdeling a = new Avdeling(navn, sjef);
-		avEAO.opprettAvdeling(a);;
+		avEAO.opprettAvdeling(a);
         
 	}
 	
@@ -290,5 +304,29 @@ public class Meny {
 		System.out.println(avdeling.toString());
 
 		
+	}
+	
+	public void leggTilProsjekt()
+	{
+		System.out.print("Hvilket navn har prosjektet?: ");
+		String navn = hentInput();
+		
+		System.out.print("Hvilken beskrivelse har prosjektet?: ");
+		String beskrivelse = hentInput();
+		
+		Prosjekt p = new Prosjekt(navn, beskrivelse);
+		
+		pEAO.opprettProsjekt(p);
+	}
+	
+	
+	public void printProsjekt()
+	{
+		System.out.print("Hvilket prosjekt skal printes? (ID): ");
+		Integer pID = Integer.parseInt(hentInput());
+		
+		Prosjekt p = pEAO.finnProsjektMedId(pID);
+		System.out.println(p.toString());
+
 	}
 }
