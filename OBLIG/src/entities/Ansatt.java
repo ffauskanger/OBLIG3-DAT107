@@ -22,7 +22,6 @@ public class Ansatt {
 		//2
 		@ManyToOne
 		@JoinColumn(name = "avdid", referencedColumnName = "id")
-		//@JoinColumn(name = "id", insertable=false, updatable=false)
 		private Avdeling avdeling;
 		
 		@OneToMany(mappedBy = "ansatt",fetch = FetchType.EAGER)

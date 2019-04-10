@@ -10,7 +10,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.ManyToOne;
-
+//d
 @Entity
 @Table(schema = "oblig3_jpa")
 @IdClass(ProsjektDeltakelsePK.class)

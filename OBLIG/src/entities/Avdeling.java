@@ -7,8 +7,10 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,7 +23,9 @@ public class Avdeling {
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private int id;
 		private String navn;
-		private Integer sjef ;
+		@OneToOne
+		@JoinColumn(name = "id")
+		private Ansatt sjef;
 		
 		//@OneToMany(targetEntity=Ansatt.class)
 		@OneToMany(mappedBy = "avdeling", fetch = FetchType.EAGER)
@@ -39,7 +43,7 @@ public class Avdeling {
 		public Avdeling() {
 		}
 		
-		public Avdeling(String navn, Integer sjef) {
+		public Avdeling(String navn, Ansatt sjef) {
 			this.navn = navn;
 			this.sjef = sjef;
 		}
@@ -60,11 +64,11 @@ public class Avdeling {
 			this.navn= navn;
 		}
 		
-		public Integer getSjef() {
+		public Ansatt getSjef() {
 			return sjef;
 		}
 		
-		public void setSjef(Integer sjef) {
+		public void setSjef(Ansatt sjef) {
 			this.sjef = sjef;
 		}
 		
