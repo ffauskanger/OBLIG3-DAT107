@@ -1,6 +1,7 @@
 package entities;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -18,10 +19,16 @@ public class Ansatt {
 		private Date ansettelse;
 		private String stilling;
 		private Integer inntekt;
+		
 		@ManyToOne
 		@JoinColumn(name = "avdid", referencedColumnName = "id")
 		//@JoinColumn(name = "id", insertable=false, updatable=false)
 		private Avdeling avdeling;
+		
+		@ManyToMany(mappedBy = "ansatte", fetch = FetchType.EAGER)
+		private List<Prosjekt> prosjekter;
+		
+		
 		
 	public Ansatt() {
 	}
@@ -65,9 +72,10 @@ public class Ansatt {
 	{
         
 		return String.format("ANSATT: [id: %d], [brukernavn: %s], [fornavn: %s], [etternavn%s],"
-							+ " [ansettelse: %s], [stilling: %s], [inntekt: %d], [avdeling: %s]",
+							+ " [ansettelse: %s], [stilling: %s], [inntekt: %d],"
+							+ " [Prosjekt: %s],  [avdeling: %s]",
 							id, brukernavn, fornavn, etternavn, ansettelse.toString(),
-							stilling, inntekt, avdeling.getNavn());
+							stilling, inntekt, prosjekter, avdeling.getNavn());
 	}
 
 }

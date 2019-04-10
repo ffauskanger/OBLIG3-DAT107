@@ -7,6 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -26,6 +27,7 @@ public class Avdeling {
 		//@OneToMany(targetEntity=Ansatt.class)
 		@OneToMany(mappedBy = "avdeling", fetch = FetchType.EAGER)
 		private List<Ansatt> ansatte;
+		
 		
 		public Avdeling() {
 		}

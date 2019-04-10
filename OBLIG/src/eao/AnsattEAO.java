@@ -9,6 +9,7 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 import entities.Ansatt;
+import entities.Prosjekt;
 
 public class AnsattEAO {
 	
@@ -48,8 +49,29 @@ public class AnsattEAO {
         }
         return a;
     }
+	
 
-/*	
+	public void registrerProsjektDeltakelse(Ansatt a, Prosjekt p) {
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		
+		try {
+			tx.begin();
+			a = em.merge(a);
+			p = em.merge(p);
+			//legg til prosjekt
+			tx.commit();
+		} catch (Throwable e) {
+			e.printStackTrace();
+			if (tx.isActive()) {
+				tx.rollback();
+			}
+		} finally {
+			em.clear();
+		}
+	}
+
+	
 	public List<Ansatt> hentAlleAnsatte() {
         EntityManager em = emf.createEntityManager();
         List<Ansatt> ansatte = null;
@@ -98,5 +120,5 @@ public class AnsattEAO {
 		}
 	}
 	
-*/	
+	
 }

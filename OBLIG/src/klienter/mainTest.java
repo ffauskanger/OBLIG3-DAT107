@@ -21,7 +21,7 @@ public class mainTest {
 		AvdelingEAO avdeao = new AvdelingEAO();
 		Avdeling avd = avdeao.finnAvdelingMedId(1);
 		System.out.println(avd);
-		
+
 		AnsattEAO eao = new AnsattEAO();
 		Ansatt ans = eao.finnAnsattMedId(1001);
 		Ansatt ans2 = eao.finnAnsattMedId(1002);
