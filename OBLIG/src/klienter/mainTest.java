@@ -18,15 +18,15 @@ public class mainTest {
 
 	public static void main(String[] args) {
 
-		AvdelingEAO avdeao = new AvdelingEAO();
-		Avdeling avd = avdeao.finnAvdelingMedId(1);
-		System.out.println(avd);
+		//AvdelingEAO avdeao = new AvdelingEAO();
+		//Avdeling avd = avdeao.finnAvdelingMedId(1);
+		//System.out.println(avd);
 
 		AnsattEAO eao = new AnsattEAO();
-		Ansatt ans = eao.finnAnsattMedId(1001);
-		Ansatt ans2 = eao.finnAnsattMedId(1002);
-		System.out.println(ans);
-		System.out.println(ans2);
+		//Ansatt ans = eao.finnAnsattMedId(1001);
+		//Ansatt ans2 = eao.finnAnsattMedId(1002);
+		//System.out.println(ans);
+		//System.out.println(ans2);
 		
 		
 		//leggTilAnsatt(eao);

@@ -25,6 +25,7 @@ public class Prosjekt {
 			//		inverseJoinColumns = @JoinColumn(name = "ansatt_Id"))
 		//private List<Ansatt> ansatte;
 		private List<ProsjektDeltakelse> deltagelser;
+		
 		public Prosjekt() {
 		}
 

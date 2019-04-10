@@ -10,6 +10,8 @@
 		<class>entities.Ansatt</class>
 		<class>entities.Prosjekt</class>
 		<class>entities.Avdeling</class>
+		<class>entities.ProsjektDeltakelse</class>
+		<class>entities.ProsjektDeltakelsePK</class>
 		
 		<properties>
 			<!--GenerelleJPA properties -->

@@ -1,9 +1,12 @@
 package klienter;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import eao.AnsattEAO;
 import entities.Ansatt;
 import entities.Avdeling;
 import entities.Prosjekt;
@@ -11,16 +14,10 @@ import entities.Prosjekt;
 public class mainTestDERP {
 	
 	public static void main(String[] args) {
-		Avdeling avd = AvdelingInfo(1);
-		System.out.println(avd.getAnsattSinSjef());
-		System.out.println(avd.getNavn());
-		System.out.println(avd.getId());
+
+		AnsattEAO eao = new AnsattEAO();
 		
-		Prosjekt pro = ProsjektInfo(901);
-		
-		System.out.println(pro.getId());
-		System.out.println(pro.getBeskirvelse());
-		
+		//printAnsatte(eao);
 	}
 	  public static Ansatt finnAnsattMedId(int id) {
 	        EntityManagerFactory emf = Persistence.createEntityManagerFactory("AnsattPersistenceUnit");
@@ -62,4 +59,15 @@ public class mainTestDERP {
 	        return a;
 		  
 	  }
+/*	  
+	  public static void printAnsatte(AnsattEAO eao)
+		{
+			List<Ansatt> ansatte = eao.hentAlleAnsatte();
+			
+			for(Ansatt a : ansatte)
+			{
+				System.out.println(a.toString());
+			}
+		}
+*/		
 }

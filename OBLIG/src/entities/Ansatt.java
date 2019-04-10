@@ -25,8 +25,8 @@ public class Ansatt {
 		//@JoinColumn(name = "id", insertable=false, updatable=false)
 		private Avdeling avdeling;
 		
-		@ManyToMany(mappedBy = "ansatte", fetch = FetchType.EAGER)
-		private List<Prosjekt> prosjekter;
+		@OneToMany(mappedBy = "ansatte")
+		private List<ProsjektDeltakelse> prosjekter;
 		
 		
 		

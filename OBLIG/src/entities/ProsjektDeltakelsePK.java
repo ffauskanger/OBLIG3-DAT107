@@ -9,7 +9,7 @@ public class ProsjektDeltakelsePK {
 	
 	public ProsjektDeltakelsePK(int ansattId, int prosjektId) {
 		this.ansatt = ansattId;
-		this.prosjekt = prosjektId;
+		this.prosjekt = prosjektId; 
 	}
 	
 
