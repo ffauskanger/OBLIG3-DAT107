@@ -27,7 +27,7 @@ public class mainTest {
 		
 		System.out.println(peao.finnProsjektMedId(51).toString());
 		//leggTilDeltakelse(pdelEAO);
-		/*
+		/*ff
 		List<Prosjekt> prosjekter = peao.hentAlleProsjekter();
 		for(Prosjekt p : prosjekter)
 		{
