@@ -21,6 +21,8 @@ public class mainTest {
 		//AvdelingEAO avdeao = new AvdelingEAO();
 		//Avdeling avd = avdeao.finnAvdelingMedId(1);
 		//System.out.println(avd);
+		
+		
 
 		AnsattEAO eao = new AnsattEAO();
 		//Ansatt ans = eao.finnAnsattMedId(1001);
@@ -32,36 +34,12 @@ public class mainTest {
 		//leggTilAnsatt(eao);
 		//printAnsatte(eao);
 		//finnAnsattMedBrukerNavn(eao, "kris");
-		//finnAnsattMedID(eao, 1);
+		finnAnsattMedID(eao, 1001);
 		//oppdaterAnsatt(eao, 1);
 		//finnAnsattMedID(eao, 1);
 		
-		/*
-	
-		DROP SCHEMA IF EXISTS oblig3_jpa CASCADE;
-
-		CREATE SCHEMA oblig3_jpa;
-		SET search_path to oblig3_jpa;
-		
-		
-		CREATE TABLE Ansatt
-		(
-		   id        SERIAL,
-		   brukernavn    VARCHAR(4),
-		   fornavn	VARCHAR(30),
-		   etternavn VARCHAR(30),
-		   ansettelse	DATE,
-		   stilling	VARCHAR(30),
-		   inntekt	INTEGER,
-		   avdeling	VARCHAR(30),
-		   PRIMARY KEY (id)  
-		);
-		
-		*/
-
-		
 	}
-/*	
+	
 	public static void finnAnsattMedBrukerNavn(AnsattEAO eao, String navn)
 	{
 		Ansatt a = eao.finnAnsattMedBrukerNavn(navn);
@@ -96,12 +74,12 @@ public class mainTest {
 			System.out.println(a.toString());
 		}
 	}
-	
+
 	public static void oppdaterAnsatt(AnsattEAO eao, Integer id) 
 	{
 		Ansatt a = eao.finnAnsattMedId(id);
 		a.setBrukernavn("ole");
 		eao.oppdaterAnsatt(a);
 	}
-*/	
+	
 }

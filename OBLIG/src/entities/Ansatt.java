@@ -25,7 +25,7 @@ public class Ansatt {
 		//@JoinColumn(name = "id", insertable=false, updatable=false)
 		private Avdeling avdeling;
 		
-		@OneToMany(mappedBy = "ansatte")
+		@OneToMany(mappedBy = "ansatt",fetch = FetchType.EAGER)
 		private List<ProsjektDeltakelse> prosjekter;
 		
 		
@@ -75,7 +75,7 @@ public class Ansatt {
 							+ " [ansettelse: %s], [stilling: %s], [inntekt: %d],"
 							+ " [Prosjekt: %s],  [avdeling: %s]",
 							id, brukernavn, fornavn, etternavn, ansettelse.toString(),
-							stilling, inntekt, prosjekter, avdeling.getNavn());
+							stilling, inntekt, prosjekter.toString(), avdeling.getNavn());
 	}
 
 }
