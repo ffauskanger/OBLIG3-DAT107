@@ -31,7 +31,9 @@ public class mainTest {
 		ProsjektDeltakelseEAO pdelEAO = new ProsjektDeltakelseEAO();
 		ProsjektEAO peao = new ProsjektEAO();
 		AnsattEAO eao = new AnsattEAO();
-		leggTilDeltakelse(pdelEAO);
+		
+		System.out.println(peao.finnProsjektMedId(51).toString());
+		//leggTilDeltakelse(pdelEAO);
 		/*
 		List<Prosjekt> prosjekter = peao.hentAlleProsjekter();
 		for(Prosjekt p : prosjekter)

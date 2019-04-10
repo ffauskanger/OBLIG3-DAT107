@@ -39,8 +39,10 @@ public class ProsjektDeltakelse {
 		 //legge til prosjekt og ansatt her, istedenfor i EAO
 	}
 	
-	
-	
+
+	public String toString() {
+		return prosjekt.getNavn();
+	}
 	
 	
 	

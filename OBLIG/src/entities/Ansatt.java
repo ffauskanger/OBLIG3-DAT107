@@ -70,6 +70,8 @@ public class Ansatt {
 	@Override
 	public String toString()
 	{
+		
+		
         
 		return String.format("ANSATT: [id: %d], [brukernavn: %s], [fornavn: %s], [etternavn%s],"
 							+ " [ansettelse: %s], [stilling: %s], [inntekt: %d],"

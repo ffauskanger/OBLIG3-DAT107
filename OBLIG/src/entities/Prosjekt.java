@@ -20,10 +20,8 @@ public class Prosjekt {
 	@Id private int id;
 		private String navn;
 		private String beskrivelse;
+
 		@OneToMany(mappedBy = "prosjekt")
-		//@JoinTable(name = "oblig3_jpa.prosjektdeltakelse", joinColumns = @JoinColumn(name = "prosjekt_Id"),
-			//		inverseJoinColumns = @JoinColumn(name = "ansatt_Id"))
-		//private List<Ansatt> ansatte;
 		private List<ProsjektDeltakelse> deltagelser;
 		
 		public Prosjekt() {
