@@ -139,7 +139,7 @@ public class Meny {
 		System.out.println("--AVDELING--");
 		System.out.println("0: Tilbake");
 		System.out.println("1: Søk på avdeling med ID");
-		System.out.println("2: List alle avdelinger");
+		System.out.println("2: Print alle avdelinger");
 		System.out.println("3: Oppdatere hvilken avdeling en ansatt jobber på");
 		System.out.println("4: Legge til ny avdeling");
 		System.out.print("Tast inn ditt valg: ");
@@ -183,7 +183,7 @@ public class Meny {
 		String brukernavn = hentInput();
         System.out.print("Fornavn til ansatt: ");
 		String fornavn = hentInput();
-		System.out.print("Fornavn til ansatt: ");
+		System.out.print("Etternavn til ansatt: ");
 		String etternavn = hentInput();
 		System.out.print("Stilling til ansatt: ");
 		String stilling = hentInput();
@@ -268,12 +268,10 @@ public class Meny {
 	
 	public void printAvdeling()
 	{
-		System.out.print("Hvilken avdeling skal hentes? (ID): ");
-		Integer avdeling = Integer.parseInt(hentInput());
 		
-		List<Ansatt> ansatte = avEAO.finnAvdelingMedId(avdeling).getAnsatte();
+		List<Avdeling> avdelinger = avEAO.hentAlleAvdelinger();
 		
-		for(Ansatt a : ansatte)
+		for(Avdeling a : avdelinger)
 		{
 			System.out.println(a.toString());
 		}

@@ -74,7 +74,7 @@ public class Avdeling {
 		
 		@Override
 		public String toString() {
-			return String.format("Avdeling: [id: %d, navn: %s, sjef: %d]:"
+			return String.format("Avdeling: [id: %d, navn: %s, sjef: %s]:"
 							+ "\n"+ "\t" + "Ansatte i denne: %s" + "\n", id, navn, sjef, ansatte);
 			
 			

@@ -1,9 +1,12 @@
 package eao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 import entities.Ansatt;
 import entities.Avdeling;
@@ -48,4 +51,17 @@ public void opprettAvdeling(Avdeling a) {
 		}
 	}
 
+
+public List<Avdeling> hentAlleAvdelinger() {
+    EntityManager em = emf.createEntityManager();
+    List<Avdeling> avdelinger = null;
+
+    try {
+		TypedQuery<Avdeling> query = em.createNamedQuery("hentAlleAvdelinger", Avdeling.class);
+		avdelinger = query.getResultList();
+    } finally {
+        em.close();
+    }
+    return avdelinger;
+}
 }
