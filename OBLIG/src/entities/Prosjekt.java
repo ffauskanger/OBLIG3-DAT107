@@ -1,7 +1,7 @@
 package entities;
 
 import java.util.List;
-
+//d
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -21,6 +21,17 @@ public class Prosjekt {
 		private String navn;
 		private String beskrivelse;
 
+		public List<ProsjektDeltakelse> getDeltagelser() {
+			return deltagelser;
+		}
+
+		public void setDeltagelser(List<ProsjektDeltakelse> deltagelser) {
+			this.deltagelser = deltagelser;
+		}
+
+		public String getBeskrivelse() {
+			return beskrivelse;
+		}
 		@OneToMany(mappedBy = "prosjekt")
 		private List<ProsjektDeltakelse> deltagelser;
 		

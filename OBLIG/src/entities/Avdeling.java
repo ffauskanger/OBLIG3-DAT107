@@ -28,6 +28,14 @@ public class Avdeling {
 		private List<Ansatt> ansatte;
 		
 		
+		public List<Ansatt> getAnsatte() {
+			return ansatte;
+		}
+
+		public void setAnsatte(List<Ansatt> ansatte) {
+			this.ansatte = ansatte;
+		}
+
 		public Avdeling() {
 		}
 		
@@ -47,7 +55,7 @@ public class Avdeling {
 		public String getNavn() {
 			return navn;
 		}
-		
+		//d
 		public void setNavn(String navn) {
 			this.navn= navn;
 		}

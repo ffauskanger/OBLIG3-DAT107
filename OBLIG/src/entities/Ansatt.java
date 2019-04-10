@@ -19,7 +19,7 @@ public class Ansatt {
 		private Date ansettelse;
 		private String stilling;
 		private Integer inntekt;
-		
+		//2
 		@ManyToOne
 		@JoinColumn(name = "avdid", referencedColumnName = "id")
 		//@JoinColumn(name = "id", insertable=false, updatable=false)
@@ -78,6 +78,58 @@ public class Ansatt {
 							+ " [Prosjekt: %s],  [avdeling: %s]",
 							id, brukernavn, fornavn, etternavn, ansettelse.toString(),
 							stilling, inntekt, prosjekter.toString(), avdeling.getNavn());
+	}
+
+	public String getFornavn() {
+		return fornavn;
+	}
+
+	public void setFornavn(String fornavn) {
+		this.fornavn = fornavn;
+	}
+
+	public String getEtternavn() {
+		return etternavn;
+	}
+
+	public void setEtternavn(String etternavn) {
+		this.etternavn = etternavn;
+	}
+
+	public Date getAnsettelse() {
+		return ansettelse;
+	}
+
+	public void setAnsettelse(Date ansettelse) {
+		this.ansettelse = ansettelse;
+	}
+
+	public String getStilling() {
+		return stilling;
+	}
+
+	public void setStilling(String stilling) {
+		this.stilling = stilling;
+	}
+
+	public Integer getInntekt() {
+		return inntekt;
+	}
+
+	public void setInntekt(Integer inntekt) {
+		this.inntekt = inntekt;
+	}
+
+	public List<ProsjektDeltakelse> getProsjekter() {
+		return prosjekter;
+	}
+
+	public void setProsjekter(List<ProsjektDeltakelse> prosjekter) {
+		this.prosjekter = prosjekter;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 }

@@ -1,14 +1,7 @@
 package klienter;
 
 
-import java.sql.Date;
 import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
-
 import eao.AnsattEAO;
 import eao.AvdelingEAO;
 import eao.ProsjektDeltakelseEAO;
@@ -51,7 +44,7 @@ public class mainTest {
 		//leggTilAnsatt(eao);
 		//printAnsatte(eao);
 		//finnAnsattMedBrukerNavn(eao, "kris");
-		finnAnsattMedID(eao, 1001);
+		//finnAnsattMedID(eao, 1001);
 		//oppdaterAnsatt(eao, 1);
 		//finnAnsattMedID(eao, 1);
 		
