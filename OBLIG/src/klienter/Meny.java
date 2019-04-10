@@ -80,11 +80,10 @@ public class Meny {
 			switch(input)
 			{
 			case 0: aktiv = false; break;
-			case 1: finnAnsattMedBrukerNavn(); break;
-			case 2: finnAnsattMedID(); break;
-			case 3: printAnsatte(); break;
-			case 4: oppdaterAnsatt(); break;
-			case 5: leggTilAnsatt(); break;
+			case 1: finnAvdelingMedID(); break;
+			case 2: printAvdeling(); break;
+			case 3: oppdaterAvdelingForAnsatt(); break;
+			case 4: leggTilAvdeling(); break;
 			default: System.out.println("Feil input!"); break;
 			}
 		}
@@ -279,6 +278,17 @@ public class Meny {
 		a.setAvdeling(avdeling);
 		
 		anEAO.oppdaterAnsatt(a);
+		
+	}
+	
+	public void finnAvdelingMedID()
+	{
+		System.out.print("Hvilken avdeling gjelder det? (ID): ");
+		Integer avdelingID = Integer.parseInt(hentInput());
+		Avdeling avdeling = avEAO.finnAvdelingMedId(avdelingID);
+		
+		System.out.println(avdeling.toString());
+
 		
 	}
 }
