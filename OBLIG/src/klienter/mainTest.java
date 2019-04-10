@@ -17,11 +17,20 @@ import entities.Avdeling;
 public class mainTest {
 
 	public static void main(String[] args) {
+
+		AvdelingEAO avdeao = new AvdelingEAO();
+		Avdeling avd = avdeao.finnAvdelingMedId(1);
+		System.out.println(avd);
 		
 		AnsattEAO eao = new AnsattEAO();
+		Ansatt ans = eao.finnAnsattMedId(1001);
+		Ansatt ans2 = eao.finnAnsattMedId(1002);
+		System.out.println(ans);
+		System.out.println(ans2);
 		
-		leggTilAnsatt(eao);
-		printAnsatte(eao);
+		
+		//leggTilAnsatt(eao);
+		//printAnsatte(eao);
 		//finnAnsattMedBrukerNavn(eao, "kris");
 		//finnAnsattMedID(eao, 1);
 		//oppdaterAnsatt(eao, 1);
@@ -52,7 +61,7 @@ public class mainTest {
 
 		
 	}
-	
+/*	
 	public static void finnAnsattMedBrukerNavn(AnsattEAO eao, String navn)
 	{
 		Ansatt a = eao.finnAnsattMedBrukerNavn(navn);
@@ -94,4 +103,5 @@ public class mainTest {
 		a.setBrukernavn("ole");
 		eao.oppdaterAnsatt(a);
 	}
+*/	
 }

@@ -19,7 +19,8 @@ public class Ansatt {
 		private String stilling;
 		private Integer inntekt;
 		@ManyToOne
-		@JoinColumn(name = "id", insertable=false, updatable=false)
+		@JoinColumn(name = "avdid", referencedColumnName = "id")
+		//@JoinColumn(name = "id", insertable=false, updatable=false)
 		private Avdeling avdeling;
 		
 	public Ansatt() {
@@ -39,6 +40,10 @@ public class Ansatt {
 		this.id = id;
 	}
 	
+	public int getId() {
+		return id;
+	}
+	
 	public void setBrukernavn(String brukernavn) {
 		this.brukernavn = brukernavn;
 	}
@@ -47,15 +52,22 @@ public class Ansatt {
 		return brukernavn;
 	}
 
-	public int getId() {
-		return id;
+	public Avdeling getAvdeling() {
+		return avdeling;
+	}
+
+	public void setAvdeling(Avdeling avdeling) {
+		this.avdeling = avdeling;
 	}
 
 	@Override
 	public String toString()
 	{
         
-		return String.format("Ansatt: id=%d, brukernavn=%s, fornavn=%s, etternavn=%s, ansettelse=%s, stilling=%s, inntekt=%d, avdeling=%s", id, brukernavn, fornavn, etternavn, ansettelse.toString(), stilling, inntekt, avdeling.getNavn());
+		return String.format("ANSATT: [id: %d], [brukernavn: %s], [fornavn: %s], [etternavn%s],"
+							+ " [ansettelse: %s], [stilling: %s], [inntekt: %d], [avdeling: %s]",
+							id, brukernavn, fornavn, etternavn, ansettelse.toString(),
+							stilling, inntekt, avdeling.getNavn());
 	}
 
 }

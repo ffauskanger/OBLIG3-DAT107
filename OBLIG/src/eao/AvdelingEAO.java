@@ -17,14 +17,14 @@ private EntityManagerFactory emf;
     
     public Avdeling finnAvdelingMedId(int id) {
         EntityManager em = emf.createEntityManager();
-        Avdeling a = null;
+       // Avdeling a = null;
 
         try {
-            a = em.find(Avdeling.class, id);
+           return em.find(Avdeling.class, id);
         } finally {
             em.close();
         }
-        return a;
+       // return a;
     }
 	
 

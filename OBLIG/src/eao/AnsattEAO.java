@@ -21,14 +21,16 @@ public class AnsattEAO {
 	
 	public Ansatt finnAnsattMedId(int id) {
         EntityManager em = emf.createEntityManager();
-        Ansatt a = null;
+        //kommenterte ut Stian, funker
+       //Ansatt a = null;
 
         try {
-            a = em.find(Ansatt.class, id);
+         return   em.find(Ansatt.class, id);
         } finally {
             em.close();
         }
-        return a;
+      //kommenterte ut Stian, funker
+       //return a;
     }
 	
 	
@@ -46,7 +48,8 @@ public class AnsattEAO {
         }
         return a;
     }
-	
+
+/*	
 	public List<Ansatt> hentAlleAnsatte() {
         EntityManager em = emf.createEntityManager();
         List<Ansatt> ansatte = null;
@@ -94,4 +97,6 @@ public class AnsattEAO {
 			em.close();
 		}
 	}
+	
+*/	
 }
